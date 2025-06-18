@@ -1,7 +1,5 @@
 
 
-<!-- README.md se genera a partir de README.qmd. Por favor, edite ese archivo -->
-
 # Plantillas no oficiales para presentaciones en la UMNG
 
 En este repositorio podrá encontrar plantillas no oficiales para
@@ -16,8 +14,8 @@ la UMNG, utilizando [Quarto](https://quarto.org/).
 quarto use template luifrancgom/presentation-umng 
 ```
 
-Esto comando instalará la extensión y creará un archivo `template.qmd`
-de ejemplo que puede utilizar como punto de partida para crear la
+Esto comando instalará la extensión y creará un archivo `.qmd` de
+ejemplo que puede utilizar como punto de partida para crear la
 presentación.
 
 ## Instalación para un documento o projecto existente
