@@ -28,9 +28,9 @@ Quarto, ejecute el siguiente comando para instalar este formato:
 quarto install extension luifrancgom/presentation-umng
 ```
 
-## Ejemplos
+## Formatos
 
-- **Revealjs**: [Demo]() ([Código]())
+- **Revealjs**
 
 ## Agradecimientos
 
