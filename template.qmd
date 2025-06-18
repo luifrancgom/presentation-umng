@@ -1,0 +1,257 @@
+---
+title: Mi gran presentación con un título demasiado largo y muy largo
+subtitle: Mi subtítulo que es demasiado largo y realmente largo
+author:
+  - name: 
+      given: Nombre(s)
+      family: Apellido(s)
+    orcid: 0000-0002-6805-1045
+    email: nom.ape@unimilitar.edu.co
+    affiliations:
+      - name: Facultad de Educación y Humanidades
+  - name: 
+      given: Nombre(s)
+      family: Apellido(s)
+    orcid: 0000-0002-0297-4824
+    email: nom.ape@unimilitar.edu.co
+    affiliations:
+      - name: Facultad de Ciencias Básicas y Aplicadas
+  - name:
+      given: Nombre(s)
+      family: Apellido(s)
+    orcid: 0000-0002-2877-9015
+    email: est.nom.ape@unimilitar.edu.co
+    affiliations:
+      - name: Facultad de Estudios a Distancia
+toc: true
+toc-depth: 1
+slide-level: 2
+format:
+  presentation-umng-revealjs:
+    logo-vertical-strip: images/logos/logo-white-vertical.png 
+    embed-resources: true
+date: last-modified
+date-format: "D MMMM, YYYY"
+lang: es
+bibliography: references/presentation-umng.bib
+csl: references/apa-7.csl
+---
+
+```{r}
+#| label: load-packages
+library(knitr)
+library(ggplot2)
+library(dplyr)
+library(JuliaCall)
+```
+
+## Hola, Universo
+
+Esta presentación te mostrará ejemplos de lo que puedes hacer con [Quarto](https://quarto.org/) y [Reveal.js](https://revealjs.com), incluyendo:
+
+- Mostrar código y fórmulas en $\LaTeX{}$
+- Incluir cálculos directamente en las diapositivas
+- Incluir imágenes
+- Usar imágenes como fondo
+
+... y mucho más
+
+# Código
+
+## Resaltado de líneas de código
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|2|5|8"
+
+# Cargar librerias
+library(tidyverse)
+library(datos)
+
+ggplot(data = millas) + # Lienzo
+  geom_point(mapping = aes(x = cilindrada, 
+                           y = autopista)) + # Geometría
+  facet_wrap(facets = vars(clase), 
+             nrow = 3) # Facetas
+```
+
+## Ejecución de código
+
+```{r}
+#| echo: true
+#| label: fig-penguins-1
+#| fig-cap: Longitud de la aleta (milímetros) vs masa corporal (gramos) en pingüinos
+#| fig-width: 6
+#| fig-height: 2
+#| fig-align: center
+
+library(ggplot2)
+
+ggplot(data = penguins, mapping = aes(x = flipper_len, y = body_mass)) +
+  geom_point(mapping = aes(color = species)) +
+  geom_smooth(formula = y ~ x, method = "loess")
+```
+
+## Pestañas[^1]
+
+::: {.panel-tabset}
+
+### Julia
+
+```{julia}
+#| echo: true
+
+for i in 1:4
+    println(i^2)
+end
+```
+
+### Python
+
+```{python}
+#| echo: true
+
+for i in range(1,5):
+  print(i**2)
+```
+
+### R
+
+```{r}
+#| echo: true
+
+for (i in 1:4) {
+  print(i^2)
+}
+```
+
+:::
+
+[^1]: Mi pie de página: **Ju**lia-**Py**thon-**R** (Jupyter)
+
+# $\LaTeX{}$
+
+## Ecuaciones con $\LaTeX{}$
+
+Renderizado de ecuaciones en HTML con [MathJax](https://www.mathjax.org/)
+
+::: {#thm-cantor}
+
+## Theorema de Cantor
+
+Si $A$ es un conjunto entonces $|A| < |\mathscr{P}(A)|$ donde $\mathscr{P}(A)$ es el conjunto potencia de $A$.
+
+:::
+
+::: {.proof}
+
+Ver [@mendelson_number_2008, p. 295]
+
+:::
+
+::: {.callout-note}
+
+Si $\mathbb{N}$ es el conjuntos de los números naturales entonces el número cardinal $|\mathbb{N}|$ se denota como $\aleph_0$ y $\aleph_0 = |\mathbb{N}| < |\mathscr{P}(\mathbb{N})|$ por @thm-cantor.
+
+:::
+
+## Ecuaciones con $\LaTeX{}$
+
+Renderizado de ecuaciones en HTML con [MathJax](https://www.mathjax.org/)
+
+::: {#def-expected-value-discrete}
+
+## Esperanza matemática (caso discreto)
+
+Para una variable aleatoria discreta $X$ con función de probabilidad $P[X = x_i]$ con $i = 1 , 2 , \ldots , n$ la esperanza se define como:
+
+$$E[X] = \sum_{i=1}^n x_i P[X = x_i]$$
+
+:::
+
+La @def-expected-value-discrete se puede extender con modificaciones para el caso continuo.
+
+# Tablas
+
+## Librería [`gt`](https://gt.rstudio.com/)
+
+```{r}
+#| label: tbl-eq-change-world
+#| tbl-cap: Ecuaciones que recientemente cambiaron el mundo
+#| echo: true
+#| code-fold: true
+
+library(gt)
+
+df <- data.frame(
+  Nombre = c("Ecuación de Black–Scholes", "Entropía de Shannon"),
+  Ecuación = c(
+    "$$\\frac{\\partial V}{\\partial t} + \\frac{1}{2} \\sigma^2 S^2 \\frac{\\partial^2 V}{\\partial S^2} + r S \\frac{\\partial V}{\\partial S} - rV = 0$$",
+    "$$H = - \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i)$$"
+  ),
+  Referencia = c(
+    "@black_pricing_1973",
+    "@shannon_mathematical_1948"
+  )
+)
+
+df |>
+  gt() |>
+  tab_style(style = cell_text(weight = "bold"), 
+            locations = cells_column_labels()) |>
+  tab_options(table.font.size = 20) |>
+  tab_source_note(source_note = md("Fuente: @stewart_pursuit_2012")) |> 
+  fmt_markdown(columns = everything())
+```
+
+# Listas
+
+## Listas incrementales
+
+::: {.incremental}
+
+- Integración fluida con:
+
+    - R
+    - Python
+    - Julia
+
+- Compatibilidad con Markdown, $\LaTeX{}$ y código incrustado
+
+:::
+
+## Listas incrementales
+
+::: {.incremental}
+
+- Formatos flexibles: 
+
+    - HTML
+    - PDF
+    - Word u OpenOffice
+
+- Soporte integrado para citas y bibliografías con [Zotero](https://www.zotero.org/)
+
+- Temas personalizables mediante [SCSS](https://sass-lang.com/) y variables
+
+:::
+
+# Imágenes
+
+## Páneles
+
+::: {#fig-flora-umng layout="[[45,-10, 45]]"}
+
+![Abutilon insigne](images/photos/flower-umng-1.jpg){#fig-abutilon-insigne height=4in .fragment}
+
+![Cirsium arvense](images/photos/flower-umng-2.jpg){#fig-cirsium-arvense height=4in .fragment}
+
+Flora en la Sede Campus Nueva Granada
+:::
+
+## Fondos {background-image="images/backgrounds/bird-umng-1.jpg"}
+
+- Mi fondo con fauna de la Sede Campus Nueva Granada 
+
+# Referencias
