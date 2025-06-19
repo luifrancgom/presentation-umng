@@ -30,7 +30,8 @@ quarto install extension luifrancgom/presentation-umng
 
 ## Formatos disponibles
 
-- **Revealjs**
+- **Revealjs**: [Demo](luifrancgom.github.io/presentation-umng/)
+  ([Código](https://github.com/luifrancgom/presentation-umng/blob/main/template.qmd))
 
 ## Agradecimientos
 
