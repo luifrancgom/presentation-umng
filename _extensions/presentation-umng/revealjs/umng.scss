@@ -50,8 +50,7 @@ $callout-color-important: $red-bright !default;
 
 // title slide
 #title-slide-layout {
-  display: flex;           
-  align-items: stretch;    
+  display: flex;
   width: 100%;             
 }
 
@@ -65,6 +64,7 @@ $callout-color-important: $red-bright !default;
   border-right: 0.4em solid $pantone-7406c;
   justify-content: center;
   flex: 1;
+  flex-grow: 1;
 }
 
 // footer
