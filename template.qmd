@@ -28,7 +28,7 @@ toc-depth: 1
 slide-level: 2
 format:
   presentation-umng-revealjs:
-    logo-vertical-strip: images/logos/logo-white-vertical.png 
+    logo-vertical-strip: images/logos/logo-white-vertical.png
     embed-resources: true
 date: last-modified
 date-format: "D MMMM, YYYY"
