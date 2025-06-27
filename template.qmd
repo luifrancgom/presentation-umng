@@ -1,5 +1,5 @@
 ---
-title: Mi gran presentación con un título demasiado largo
+title: Mi gran presentación con un título demasiado largo y realmente largo
 subtitle: Mi subtítulo que es demasiado largo y realmente largo
 author:
   - name: 
@@ -101,6 +101,7 @@ ggplot(data = penguins, mapping = aes(x = flipper_len, y = body_mass)) +
 
 ```{julia}
 #| echo: true
+#| eval: false
 
 for i in 1:4
     println(i^2)
