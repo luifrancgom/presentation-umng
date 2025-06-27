@@ -1,5 +1,5 @@
 ---
-title: Mi gran presentación con un título demasiado largo y muy largo
+title: Mi gran presentación con un título demasiado largo
 subtitle: Mi subtítulo que es demasiado largo y realmente largo
 author:
   - name: 
@@ -16,7 +16,7 @@ author:
     email: nom.ape@unimilitar.edu.co
     affiliations:
       - name: Facultad de Ciencias Básicas y Aplicadas
-  - name:
+  - name: 
       given: Nombre(s)
       family: Apellido(s)
     orcid: 0000-0002-2877-9015
@@ -138,7 +138,7 @@ Renderizado de ecuaciones en HTML con [MathJax](https://www.mathjax.org/)
 
 ::: {#thm-cantor}
 
-## Theorema de Cantor
+## Teorema de Cantor
 
 Si $A$ es un conjunto entonces $|A| < |\mathscr{P}(A)|$ donde $\mathscr{P}(A)$ es el conjunto potencia de $A$.
 
@@ -164,7 +164,7 @@ Renderizado de ecuaciones en HTML con [MathJax](https://www.mathjax.org/)
 
 ## Esperanza matemática (caso discreto)
 
-Para una variable aleatoria discreta $X$ con función de probabilidad $P[X = x_i]$ con $i = 1 , 2 , \ldots , n$ la esperanza se define como:
+Para una variable aleatoria discreta $X$ con función de probabilidad $P[X = x_i]$ e $i = 1 , 2 , \ldots , n$ la esperanza se define como:
 
 $$E[X] = \sum_{i=1}^n x_i P[X = x_i]$$
 
@@ -187,8 +187,8 @@ library(gt)
 df <- data.frame(
   Nombre = c("Ecuación de Black–Scholes", "Entropía de Shannon"),
   Ecuación = c(
-    "$$\\frac{\\partial V}{\\partial t} + \\frac{1}{2} \\sigma^2 S^2 \\frac{\\partial^2 V}{\\partial S^2} + r S \\frac{\\partial V}{\\partial S} - rV = 0$$",
-    "$$H = - \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i)$$"
+    "$\\frac{\\partial V}{\\partial t} + \\frac{1}{2} \\sigma^2 S^2 \\frac{\\partial^2 V}{\\partial S^2} + r S \\frac{\\partial V}{\\partial S} - rV = 0$",
+    "$H = - \\sum_{i=1}^{n} p(x_i) \\log_2 p(x_i)$"
   ),
   Referencia = c(
     "@black_pricing_1973",
@@ -229,7 +229,7 @@ df |>
 
     - HTML
     - PDF
-    - Word u OpenOffice
+    - MS Word, Open Office y PowerPoint 
 
 - Soporte integrado para citas y bibliografías con [Zotero](https://www.zotero.org/)
 
